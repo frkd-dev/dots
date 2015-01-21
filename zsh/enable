@@ -1,1 +1,0 @@
-git config --global alias.lg 'log --graph --date=short --decorate --format=format:"%C(bold yellow)%h%C(reset) %C(cyan)%cd (%cr) %C(white)%s %C(green)<%an>%C(bold magenta)%d%C(reset)"'

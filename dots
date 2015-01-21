@@ -1,0 +1,63 @@
+#!/bin/bash
+
+declare -a enable_functions
+declare -a disable_functions
+
+install_link() {
+	local _TARGET=$1
+	local _INSTALL=$2
+
+	if [[ "$(readlink $_INSTALL)" == "$_TARGET" ]] ; then
+		echo "'$_INSTALL' already installed"
+	fi
+
+	if [[ -e "$_INSTALL" ]] ; then
+		mv "$_INSTALL" "${_INSTALL}.dotbak"
+	fi
+
+	ln -s "$_TARGET" "$_INSTALL"
+}
+
+uninstall_link() {
+	local _TARGET=$1
+	local UNINSTALL=$2
+
+	if [[ "$(readlink $UNINSTALL)" == "$_TARGET" ]] ; then
+	        rm "$UNINSTALL"
+	fi
+
+	if [[ -e "${UNINSTALL}.dotbak" ]] ; then
+	        mv "${UNINSTALL}.dotbak" "${UNINSTALL}"
+	fi
+}
+
+enable_all() {
+	for _func in ${enable_functions[@]} ; do
+		$_func
+	done
+}
+
+disable_all() {
+	for _func in ${disable_functions[@]} ; do
+		$_func
+	done
+}
+
+print_help() {
+	echo "Enable or disable dotfile configs"
+	echo
+	echo "Usage: ~/.dotfiles/dots [on|off]"
+}
+
+for _module in ~/.dotfiles/*/dotconf ; do
+	if [[ -e $_module ]] ; then
+		echo "Enabling: $_module"
+		source $_module
+	fi
+done
+
+case $1 in
+	on) enable_all ;;
+	off) disable_all ;;
+	*) print_help ;;
+esac
