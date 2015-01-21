@@ -1,0 +1,26 @@
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**'
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' squeeze-slashes true
+zstyle :compinstall filename '~/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+HISTFILE=~/.zshistory
+HISTSIZE=1000
+SAVEHIST=1000
+
+bindkey -e
+
+# all zsh extensions must be in zsh-* folders
+for rcfile in .dotfiles/zsh-*/zshrc ; do
+	source $rcfile
+done
+
+PROMPT=' %(?.%{$fg[green]%}⚫%{$reset_color%}.%{$fg[red]%}⚫%{$reset_color%})${PROMPT_PRE}'${PROMPT_EXT}' '
