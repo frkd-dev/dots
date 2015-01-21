@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [[ "$(readlink ~/.zshrc)" == "~/.dotfiles/zsh/zshrc" ]] ; then
-	rm ~/.zshrc ~/.zshrc.dotbak
-fi
-
-if [[ -e ~/.zshrc.bak ]] ; then
-	mv ~/.zshrc.dotbak ~/.zshrc
-fi
