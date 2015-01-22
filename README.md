@@ -42,4 +42,4 @@ Folders that have no `dotconf` file are skipped.
 zsh submodules
 --------------
 
-Here is one conformance about zsh submodules: they are also placed in `~/.dotfiles`, but have `zsh-` prefix and have `zshrc` file inside. Once zsh shell starts, it includes all `~/.dotfiles/zsh-*/zshrc` files from main `~/.zshrc` file, so you can easely extend it by creating new `zsh-` prefixed folders with `zshrc` files inside.
+There is one convention about zsh submodules: they are also must be placed in `~/.dotfiles`, but must have `zsh-` prefix and have `zshrc` file inside. Once zsh shell starts, it includes all `~/.dotfiles/zsh-*/zshrc` files from main `~/.zshrc` file, so you can easely extend it by creating new `zsh-` prefixed folders with `zshrc` files inside.
