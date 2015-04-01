@@ -49,7 +49,7 @@ print_help() {
 	echo "Usage: ~/.dotfiles/dots [on|off]"
 }
 
-for _module in ~/.dotfiles/*/dotconf ; do
+for _module in $HOME/.dotfiles/*/dotconf ; do
 	if [[ -e $_module ]] ; then
 		echo "Enabling: $_module"
 		source $_module

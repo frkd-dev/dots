@@ -3,9 +3,9 @@ enable_functions+=(zsh_enable)
 disable_functions+=(zsh_disable)
 
 zsh_enable() {
-	install_link ~/.dotfiles/zsh/zshrc ~/.zshrc
+	install_link $HOME/.dotfiles/zsh/zshrc $HOME/.zshrc
 }
 
 zsh_disable() {
-	uninstall_link ~/.dotfiles/zsh/zshrc ~/.zshrc
+	uninstall_link $HOME/.dotfiles/zsh/zshrc $HOME/.zshrc
 }

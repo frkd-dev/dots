@@ -3,9 +3,9 @@ enable_functions+=(fontconfig_enable)
 disable_functions+=(fontconfig_disable)
 
 fontconfig_enable(){
-	install_link ~/.dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+	install_link $HOME/.dotfiles/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 }
 
 fontconfig_disable(){
-	uninstall_link ~/.dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+	uninstall_link $HOME/.dotfiles/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 }
